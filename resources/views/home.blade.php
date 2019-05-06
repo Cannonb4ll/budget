@@ -49,6 +49,16 @@
                     <div class="card-header">Overzicht</div>
 
                     <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form action="/" method="post">
                             @csrf
                             <div class="form-group">
@@ -62,11 +72,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Beschrijving</label>
-                                <textarea class="form-control" name="description" id="description"></textarea>
+                                <textarea class="form-control" name="description" id="description">{{ old('description') }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="total">Totaal</label>
-                                <input type="number" step="any" name="total" class="form-control" id="total">
+                                <input type="number" step="any" value="{{ old('total') }}" name="total" class="form-control" id="total">
                             </div>
                             <button type="submit" class="btn btn-primary">Opslaan</button>
                         </form>

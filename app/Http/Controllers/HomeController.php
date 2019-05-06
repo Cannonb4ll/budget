@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TotalRequest;
 use App\Models\Line;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +27,7 @@ class HomeController extends Controller
         return view('home', compact('total', 'discharge', 'lines', 'paginatedLines', 'grouped'));
     }
 
-    public function save(Request $request)
+    public function save(TotalRequest $request)
     {
         $line = Line::create($request->all());
 

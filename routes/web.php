@@ -21,3 +21,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/line/{line}/destroy', 'HomeController@destroy');
 });
 
+
+//

@@ -19,6 +19,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::post('/', 'HomeController@save');
     Route::delete('/line/{line}/destroy', 'HomeController@destroy');
+
+    Route::post('export', 'ExportController@export');
 });
 
 

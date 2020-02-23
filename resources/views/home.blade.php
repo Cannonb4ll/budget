@@ -46,7 +46,14 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">Overzicht</div>
+                    <div class="card-header">
+                        Overzicht
+
+                        <form method="post" action="/export" class="float-right">
+                            @csrf
+                            <button class="btn btn-secondary btn-sm">Exporteer</button>
+                        </form>
+                    </div>
 
                     <div class="card-body">
                         @if ($errors->any())
